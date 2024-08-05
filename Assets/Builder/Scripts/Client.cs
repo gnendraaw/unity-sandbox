@@ -1,9 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Sandbox.BuilderPattern
 {
     public class Client : MonoBehaviour {
         [SerializeField] private CarType carType;
+        [SerializeField] private Button createCarButton;
+
+        private void Awake() {
+            createCarButton.onClick.AddListener(MakeCar);
+        }
 
         private void Start() {
             MakeCar();

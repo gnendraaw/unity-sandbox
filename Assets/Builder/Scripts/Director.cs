@@ -8,11 +8,13 @@ namespace Sandbox.BuilderPattern
         }
 
         public void ConstructSportCar(IBuider builder) {
+            builder.Reset();
             builder.SetEngine(new SportEngine());
             builder.SetSeat(2);
         }
 
         public void ConstructSUV(IBuider builder) {
+            builder.Reset();
             builder.SetEngine(new SUVEngine());
             builder.SetSeat(4);
         }
