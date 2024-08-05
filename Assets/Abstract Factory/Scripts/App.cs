@@ -1,19 +1,12 @@
-using System;
 using UnityEngine;
 
 namespace Sandbox.AbstractFactory
 {
     public class App : MonoBehaviour {
-        [SerializeField] private FurnitureType furnitureType;
-
         private IFurnitureFactory factory;
 
-        private void Awake() {
-            factory = furnitureType switch {
-                FurnitureType.Modern => new ModernFurnitureFactory(),
-                FurnitureType.Classic => new ClassicFurnitureFactory(),
-                _ => throw new AggregateException("Error! Unknown Furniture Type"),
-            };
+        public void Initialize(IFurnitureFactory factory) {
+            this.factory = factory;
         }
 
         private void Start() {
@@ -26,11 +19,5 @@ namespace Sandbox.AbstractFactory
             radio.TurnOn();
             radio.TurnOff();
         }
-    }
-
-    [System.Serializable]
-    public enum FurnitureType {
-        Modern,
-        Classic
     }
 }
