@@ -9,6 +9,20 @@ namespace Sandbox.FactoryMethod
         private readonly int defaultSize = 10;
         private readonly int maxSize = 100;
 
+        public override IEnemy CreateEnemy(EnemyData data) {
+            var instance = Instantiate(data.Prefab);
+            instance.SetActive(false);
+
+            var enemy = instance.GetComponent<Enemy>();
+            if (!enemy)
+                enemy = instance.AddComponent<Enemy>();
+            
+            enemy.SetPrefab(data.Prefab);
+            enemy.SetSpeed(data.Speed);
+            
+            return enemy;
+        }
+
         public override IEnemy CreateEnemy() {
             Debug.Log($"EnemyCreator.CreateEnemy");
 
@@ -49,6 +63,20 @@ namespace Sandbox.FactoryMethod
             var enemy = instance.AddComponent<Enemy>();
             enemy.SetSpeed(7f);
 
+            return enemy;
+        }
+
+        private Enemy ImprovedOnCreate(EnemyData data) {
+            var instance = Instantiate(data.Prefab);
+            instance.SetActive(false);
+
+            var enemy = instance.GetComponent<Enemy>();
+            if (!enemy)
+                enemy = instance.AddComponent<Enemy>();
+            
+            enemy.SetPrefab(data.Prefab);
+            enemy.SetSpeed(data.Speed);
+            
             return enemy;
         }
     }
