@@ -6,10 +6,12 @@ namespace Sandbox.Playground.Shooter {
         [SerializeField] private float speed;
 
         private IPlayerMover mover;
+        private IPlayerWeapon weapon;
 
         private void Awake() {
             var playerInput = GetComponent<PlayerInput>();
             mover = new PlayerMover(playerInput);
+            weapon = PlayerWeapon.Create(playerInput.actions["Fire"]);
         }
 
         private void Update() {
