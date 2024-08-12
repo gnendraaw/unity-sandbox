@@ -613,6 +613,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488997291}
   m_CullTransparentMesh: 1
+--- !u!1 &706662012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 706662014}
+  - component: {fileID: 706662013}
+  m_Layer: 0
+  m_Name: Projectile Factory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &706662013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706662012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ba5fc236691a3449a816c18a38732d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectiles:
+  - {fileID: 11400000, guid: 54e6daeeaa1f9174f95cbf15703b5d7f, type: 2}
+  - {fileID: 11400000, guid: 5934e2335ea6c834fbb8fb6203534c5d, type: 2}
+  - {fileID: 11400000, guid: 27c4475cb86b1014e8fd23bc8896d8a3, type: 2}
+--- !u!4 &706662014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706662012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735801860
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,10 +705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dffcbcfb2915254ea1319dd7e2b5ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectiles:
-  - {fileID: 11400000, guid: 54e6daeeaa1f9174f95cbf15703b5d7f, type: 2}
-  - {fileID: 11400000, guid: 5934e2335ea6c834fbb8fb6203534c5d, type: 2}
-  - {fileID: 11400000, guid: 27c4475cb86b1014e8fd23bc8896d8a3, type: 2}
   spawnProjectileButton: {fileID: 488997293}
   spawnPoint: {fileID: 108251736}
 --- !u!1 &1829420471
@@ -774,3 +818,4 @@ SceneRoots:
   - {fileID: 201474842}
   - {fileID: 1735801861}
   - {fileID: 108251736}
+  - {fileID: 706662014}

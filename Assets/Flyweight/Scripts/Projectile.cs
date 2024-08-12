@@ -5,6 +5,7 @@ namespace Sandbox.Flyweight
 {
     public class Projectile : MonoBehaviour {
         private ProjectileData data;
+        public ProjectileData Data => data;
         private float Speed => data.Speed;
         private float LifeTime => data.LifeTime;
 
@@ -26,7 +27,7 @@ namespace Sandbox.Flyweight
 
         private IEnumerator DespawnAfterDelay() {
             yield return new WaitForSeconds(LifeTime);
-            Destroy(gameObject);
+            ProjectileFactory.Instance.Release(this);
         }
     }
 }
