@@ -1,0 +1,5 @@
+namespace Sandbox.Playground.Shooter {
+
+}
+
+

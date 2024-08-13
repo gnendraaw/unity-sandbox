@@ -3,12 +3,6 @@ using UnityEngine;
 
 namespace Sandbox.Playground.Shooter
 {
-    public interface IProjectileBuilder {
-        void Reset();
-        void SetProjectileData(ProjectileData data);
-        void SetMover(IProjectileMover mover);
-    }
-
     public class ProjectileBuilder : IProjectileBuilder {
         Projectile product;
 
@@ -18,12 +12,17 @@ namespace Sandbox.Playground.Shooter
 
         public void SetProjectileData(ProjectileData data) {
             var instance = GameObject.Instantiate(data.Prefab);
+            instance.SetActive(false);
             product = instance.GetOrAdd<Projectile>();
             product.SetProjectileData(data);
         }
 
         public void SetMover(IProjectileMover mover) {
             product.SetProjectileMover(mover);
+        }
+
+        public void SetCreator(IProjectileCreator creator) {
+            product.SetCreator(creator);
         }
 
         public Projectile GetProduct() {
@@ -34,9 +33,10 @@ namespace Sandbox.Playground.Shooter
     }
 
     public class ProjectileDirector {
-        public void ConstructProjectile(IProjectileBuilder builder, ProjectileData data) {
+        public void ConstructProjectile(IProjectileBuilder builder, ProjectileData data, IProjectileCreator creator) {
             builder.SetProjectileData(data);
             builder.SetMover(new ProjectileMover());
+            builder.SetCreator(creator);
         }
     }
 }
