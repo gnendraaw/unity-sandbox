@@ -1,22 +1,28 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Sandbox.Playground.Shooter {
     public class Player : MonoBehaviour {
-        [SerializeField] private float speed;
+        [SerializeField] private Transform firepoint;
 
+        private IPlayerInputReader inputReader;
         private IPlayerMover mover;
         private IPlayerWeapon weapon;
 
-        private void Awake() {
-            var playerInput = GetComponent<PlayerInput>();
-            mover = new PlayerMover(playerInput);
-            weapon = PlayerWeapon.Create(playerInput.actions["Fire"]);
+        private void Start() {
+            inputReader.RegisterFireCallback(() => weapon.Fire(firepoint));
         }
 
         private void Update() {
-            mover.Move(transform, speed, Time.deltaTime);
+            HandleMove();
         }
+
+        private void HandleMove() {
+            mover.Move(inputReader.GetMoveInput(), transform, Time.deltaTime);
+        }
+
+        public void SetInputReader(IPlayerInputReader inputReader) => this.inputReader = inputReader;
+        public void SetMover(IPlayerMover mover) => this.mover = mover;
+        public void SetWeapon(IPlayerWeapon weapon) => this.weapon = weapon;
     }
 }
 

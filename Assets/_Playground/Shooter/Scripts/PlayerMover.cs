@@ -1,20 +1,15 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace Sandbox.Playground.Shooter
-{
+namespace Sandbox.Playground.Shooter {
     public class PlayerMover : IPlayerMover {
-        private const string MOVE_ACTION_NAME = "Move";
-        private readonly PlayerInput input;
-        private readonly InputAction moveAction;
+        private readonly float speed;
 
-        public PlayerMover(PlayerInput input) {
-            this.input = input;
-            moveAction = input.actions[MOVE_ACTION_NAME];
+        public PlayerMover(float speed) {
+            this.speed = speed;
         }
 
-        public void Move(Transform origin, float speed, float deltaTime) {
-            Vector3 direction = moveAction.ReadValue<Vector2>();
+        public void Move(Vector2 input, Transform origin, float deltaTime) {
+            Vector3 direction = new(input.x, input.y);
             origin.position += deltaTime * speed * direction;
         }
     }
