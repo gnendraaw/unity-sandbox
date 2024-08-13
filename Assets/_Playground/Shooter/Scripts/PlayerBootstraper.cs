@@ -8,11 +8,12 @@ namespace Sandbox.Playground.Shooter {
         [SerializeField] private PlayerData data;
 
         private void Awake() {
+            var playerWeapon = new PlayerWeapon(data);
+            player.SetWeapon(playerWeapon);
             player.SetInputReader(
                 PlayerInputReader.Create(player.GetComponent<PlayerInput>())
             );
             player.SetMover(new PlayerMover(data.Speed));
-            player.SetWeapon(new PlayerWeapon());
         }
     }
 }

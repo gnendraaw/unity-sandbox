@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0fcd5ec2404c947b2a24a6977eddfe, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: 69728d747c8522f4a939330e2590431c, type: 3}
+  m_Name: CircleProjectile
   m_EditorClassIdentifier: 
-  Speed: 7
-  Projectile: {fileID: 11400000, guid: 5fc0d18132b5f304abf618c7a93db6ef, type: 2}
+  Prefab: {fileID: 3766910206407652149, guid: c0ad7a8d8a7d59744b2960c660849432, type: 3}
+  Speed: 4
+  LifeTime: 2
+  Type: 1
