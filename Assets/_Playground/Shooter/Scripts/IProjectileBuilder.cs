@@ -4,7 +4,6 @@ namespace Sandbox.Playground.Shooter
         void Reset();
         void SetProjectileData(ProjectileData data);
         void SetMover(IProjectileMover mover);
-        void SetCreator(IProjectileCreator creator);
     }
 }
 

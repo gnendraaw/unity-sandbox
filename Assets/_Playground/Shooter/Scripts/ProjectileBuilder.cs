@@ -21,10 +21,6 @@ namespace Sandbox.Playground.Shooter
             product.SetProjectileMover(mover);
         }
 
-        public void SetCreator(IProjectileCreator creator) {
-            product.SetCreator(creator);
-        }
-
         public Projectile GetProduct() {
             var product = this.product;
             Reset();
@@ -33,10 +29,9 @@ namespace Sandbox.Playground.Shooter
     }
 
     public class ProjectileDirector {
-        public void ConstructProjectile(IProjectileBuilder builder, ProjectileData data, IProjectileCreator creator) {
+        public void ConstructProjectile(IProjectileBuilder builder, ProjectileData data) {
             builder.SetProjectileData(data);
             builder.SetMover(new ProjectileMover());
-            builder.SetCreator(creator);
         }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Sandbox.Playground.Shooter {
-    public class Player : MonoBehaviour {
+    public class PlayerController : MonoBehaviour {
         [SerializeField] private Transform firepoint;
 
         private IPlayerInputReader inputReader;

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   Speed: 7
-  Projectile: {fileID: 11400000, guid: 5fc0d18132b5f304abf618c7a93db6ef, type: 2}
+  Projectile: {fileID: 11400000, guid: 6603b6dd3057ca14bb77ef99371fbe47, type: 2}

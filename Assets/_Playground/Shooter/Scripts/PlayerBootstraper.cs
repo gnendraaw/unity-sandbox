@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 namespace Sandbox.Playground.Shooter {
     [DefaultExecutionOrder(-999)]
     public class PlayerBootstraper : MonoBehaviour {
-        [SerializeField] private Player player;
+        [SerializeField] private PlayerController player;
         [SerializeField] private PlayerData data;
 
         private void Awake() {
