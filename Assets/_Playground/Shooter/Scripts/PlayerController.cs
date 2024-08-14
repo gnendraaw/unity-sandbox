@@ -14,6 +14,11 @@ namespace Sandbox.Playground.Shooter {
 
         private void Update() {
             HandleMove();
+            HandleRotation();
+        }
+
+        private void HandleRotation() {
+            mover.LookAt(transform, Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
 
         private void HandleMove() {
