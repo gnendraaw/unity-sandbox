@@ -459,6 +459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5551ef718eb1e747b3ad1da37e2c622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxMana: 5
+  currentMana: 1
 --- !u!114 &1316761681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f360fc8a6a609e4eb4472c6a59f14b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 10
 --- !u!4 &1316761682
 Transform:
   m_ObjectHideFlags: 0
