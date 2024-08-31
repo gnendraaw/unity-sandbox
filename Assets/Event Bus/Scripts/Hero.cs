@@ -8,12 +8,18 @@ namespace Sandbox {
 
         private void OnEnable() {
             EventBus.Register<PlayerEvent>(OnPlayerEvent);
-            Debug.Log("Registered to PlayerEvent.");
+            Debug.Log("Player registered to PlayerEvent");
+
+            EventBus.Register<TestEvent>(OnTestEvent);
+            Debug.Log("Player registered to TestEvent");
         }
 
         private void OnDisable() {
             EventBus.Deregister<PlayerEvent>(OnPlayerEvent);
-            Debug.Log("Deregistered from PlayerEvent.");
+            Debug.Log("Player deregistred from PlayerEvent");
+
+            EventBus.Deregister<TestEvent>(OnTestEvent);
+            Debug.Log("Player deregistred from TestEvent");
         }
 
         private void Awake() {
@@ -23,11 +29,18 @@ namespace Sandbox {
 
         private void Update() {
             if (Input.GetKeyDown(KeyCode.Alpha1)) {
-                EventBus.Raise<PlayerEvent>(new PlayerEvent {
+                EventBus.Raise(new PlayerEvent {
                     Health = 10,
                     Mana = 5
                 });
+
                 Debug.Log("Player Event Raised.");
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2)) {
+                EventBus.Raise(new TestEvent());
+
+                Debug.Log("Test Event Raised.");
             }
         }
 
@@ -35,6 +48,10 @@ namespace Sandbox {
             Debug.Log($"Player Event Recieved! Health: {@event.Health}, Mana: {@event.Mana}");
             health.SetHealth(health.GetHealth() + @event.Health);
             mana.SetMana(mana.GetMana() + @event.Mana);
+        }
+
+        private void OnTestEvent(TestEvent @event) {
+            Debug.Log("Improved EventBus; Test Event Recieved");
         }
     }
 }
