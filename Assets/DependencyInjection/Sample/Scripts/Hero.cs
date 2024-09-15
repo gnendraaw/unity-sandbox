@@ -4,12 +4,12 @@ namespace Ardell.DI.Sample {
     public class Hero : MonoBehaviour {
         [SerializeField] HeroSettings settings;
 
+        IHeroWeaponComponent weapon;
         IAudioSystem audioSystem;
-        public IAudioSystem AudioSystem { 
-            get => audioSystem;
-            set {
-                audioSystem = value;
-            }
+
+        [Inject]
+        public void Construct(IHeroWeaponComponent weapon) {
+            this.weapon = weapon;
         }
 
         private void Update() {
@@ -18,8 +18,6 @@ namespace Ardell.DI.Sample {
             }
         }
 
-        private void PerformAttack() {
-            audioSystem.Play(settings.attackSettings.attackAudio, settings.attackSettings.attackVolume);
-        }
+        private void PerformAttack() => weapon.Fire();
     }
 }

@@ -41,14 +41,17 @@ namespace Ardell.DI {
 
         public T Resolve<T>() where T : class {
             var type = typeof(T);
+            return Resolve(type) as T;
+        }
 
+        public object Resolve(Type type) {
             // Check if the dependency has been registered.
             if (_registrations.TryGetValue(type, out var entry)) {
                 var (factory, lifetime) = entry;
 
                 return lifetime switch {
-                    Lifetime.Singleton => GetOrCreateSingleton(type, factory) as T,
-                    Lifetime.Default => factory() as T,
+                    Lifetime.Singleton => GetOrCreateSingleton(type, factory),
+                    Lifetime.Default => factory(),
                     _ => null,
                 };
             } else {

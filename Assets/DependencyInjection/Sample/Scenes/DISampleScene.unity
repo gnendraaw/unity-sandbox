@@ -132,6 +132,9 @@ GameObject:
   m_Component:
   - component: {fileID: 452337766}
   - component: {fileID: 452337767}
+  - component: {fileID: 452337769}
+  - component: {fileID: 452337770}
+  - component: {fileID: 452337771}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -168,6 +171,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 261bf8cc99174e64a963d445beb29983, type: 2}
+--- !u!114 &452337769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452337765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da658f4cc33e1243936a1ae53dd23ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponComponent: {fileID: 452337771}
+  mockWeaponComponent: {fileID: 452337770}
+--- !u!114 &452337770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452337765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b4a7a66eb21ae4cb102c060599a962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &452337771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452337765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800d50becb0894e4897957230277bbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firepoint: {fileID: 452337766}
+  _settings: {fileID: 11400000, guid: 4e2db2d11ce149b4c8b2bb27cc9eec1f, type: 2}
 --- !u!1 &479930734
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6480ded338b441d4d8b11b406a015403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSystem: {fileID: 1750088564}
 --- !u!4 &1710716997
 Transform:
   m_ObjectHideFlags: 0
@@ -578,7 +622,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1710716997}
   - {fileID: 479930738}
   - {fileID: 452337766}
   - {fileID: 1750088565}
-  - {fileID: 1710716997}
